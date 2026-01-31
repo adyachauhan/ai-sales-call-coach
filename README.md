@@ -86,7 +86,6 @@ Audio Upload → Transcript → RAG Retrieval → Multi-Agent Analysis → Aggre
 ## ⚙️ Setup Instructions
 
 ### 1. Clone the repository
-```bash
 git clone https://github.com/adyachauhan/ai-sales-call-coach.git
 cd ai-sales-call-coach
 

@@ -4,12 +4,7 @@ from fastapi.responses import FileResponse
 import shutil
 import os
 
-from backend.orchestrator import build_orchestrator
-
 app = FastAPI()
-
-# Build LangChain orchestrator once
-orchestrator = build_orchestrator()
 
 # Paths (absolute-safe)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))          # .../backend

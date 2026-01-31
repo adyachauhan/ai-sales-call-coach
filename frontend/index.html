@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Sales Call Coach</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 32px; background: #f6f8fa; }
+    h1 { margin-bottom: 8px; }
+    .row { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; }
+    .card { background: white; padding: 16px; border-radius: 8px; margin: 14px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+    .muted { color: #555; }
+    .error { color: #b00020; font-weight: 600; white-space: pre-wrap; }
+    button { padding: 10px 14px; border: 0; border-radius: 6px; cursor: pointer; background: #2563eb; color: white; }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+    ul { margin: 8px 0 0 20px; }
+    pre { background: #0b1020; color: #e5e7eb; padding: 12px; border-radius: 8px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+
+  <h1>🎧 AI Sales Call Coach</h1>
+  <p class="muted">Upload a sales call audio file to get transcript + coaching feedback.</p>
+
+  <div class="row">
+    <input type="file" id="audioFile" accept="audio/*" />
+    <button id="uploadBtn" onclick="uploadAudio()">Upload & Analyze</button>
+  </div>
+
+  <div id="status" class="muted"></div>
+  <div id="error" class="error"></div>
+
+  <div id="results" style="display:none;">
+    <div class="card">
+      <h2>📝 Transcript</h2>
+      <div id="transcript"></div>
+    </div>
+
+    <div class="card">
+      <h2>📊 Call Summary</h2>
+      <p><strong>Summary:</strong> <span id="callSummary"></span></p>
+      <p><strong>Customer Intent:</strong> <span id="customerIntent"></span></p>
+      <p><strong>Sentiment:</strong> <span id="sentiment"></span></p>
+    </div>
+
+    <div class="card">
+      <h2>⭐ Rep Performance</h2>
+      <p><strong>Score:</strong> <span id="repScore"></span></p>
+      <h3>✅ What Went Well</h3>
+      <ul id="wentWell"></ul>
+      <h3>⚠️ What To Improve</h3>
+      <ul id="toImprove"></ul>
+    </div>
+
+    <div class="card">
+      <h2>🛑 Objection Analysis</h2>
+      <h3>Missed Objections</h3>
+      <ul id="missedObjections"></ul>
+      <h3>Buying Signals</h3>
+      <ul id="buyingSignals"></ul>
+      <h3>🎯 Missed Opportunities</h3>
+      <ul id="missedOpportunities"></ul>
+    </div>
+
+    <div class="card">
+      <h2>➡️ Recommended Next Actions</h2>
+      <ul id="nextActions"></ul>
+    </div>
+
+    <div class="card">
+      <h2>🧾 Raw JSON (debug)</h2>
+      <pre id="rawJson"></pre>
+    </div>
+  </div>
+
+  <script>
+    function fillList(id, items) {
+      const ul = document.getElementById(id);
+      ul.innerHTML = "";
+      (items || []).forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+    }
+
+    async function uploadAudio() {
+      const fileInput = document.getElementById("audioFile");
+      const status = document.getElementById("status");
+      const errorEl = document.getElementById("error");
+      const btn = document.getElementById("uploadBtn");
+
+      errorEl.textContent = "";
+      status.textContent = "";
+
+      if (!fileInput.files.length) {
+        alert("Please select an audio file");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+
+      btn.disabled = true;
+      status.textContent = "⏳ Uploading & analyzing...";
+
+      try {
+        const response = await fetch("/upload-audio/", {
+          method: "POST",
+          body: formData
+        });
+
+        const text = await response.text();
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch {
+          throw new Error("Server did not return JSON.\n\nResponse:\n" + text);
+        }
+
+        if (!response.ok) {
+          throw new Error("Request failed (" + response.status + ").\n\n" + JSON.stringify(data, null, 2));
+        }
+
+        const report = data.analysis || data.dashboard || data.final_report;
+        if (!report) {
+          throw new Error("Could not find analysis/dashboard/final_report in response.\nKeys: " + Object.keys(data).join(", "));
+        }
+
+        // Transcript
+        document.getElementById("transcript").textContent = data.transcript || "(no transcript)";
+
+        // Top summary
+        document.getElementById("callSummary").textContent = report.call_summary || "(missing)";
+        document.getElementById("customerIntent").textContent = report.customer_intent || "(missing)";
+        document.getElementById("sentiment").textContent = report.sentiment || "(missing)";
+
+        // Rep performance (nested)
+        const rep = report.rep_performance || {};
+        document.getElementById("repScore").textContent = (rep.score ?? "(missing)");
+        fillList("wentWell", rep.what_went_well);
+        fillList("toImprove", rep.what_to_improve);
+
+        // Objection analysis (nested)
+        const obj = report.objection_analysis || {};
+        fillList("missedObjections", obj.missed_objections);
+        fillList("buyingSignals", obj.buying_signals);
+        fillList("missedOpportunities", obj.missed_opportunities);
+
+        // Next actions
+        fillList("nextActions", report.recommended_next_actions);
+
+        // Debug raw JSON
+        document.getElementById("rawJson").textContent = JSON.stringify(data, null, 2);
+
+        document.getElementById("results").style.display = "block";
+        status.textContent = "✅ Analysis complete";
+      } catch (err) {
+        console.error(err);
+        document.getElementById("results").style.display = "none";
+        errorEl.textContent = "❌ " + (err?.message || String(err));
+        status.textContent = "";
+      } finally {
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

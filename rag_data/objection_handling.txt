@@ -1,0 +1,13 @@
+Objection handling is the process of addressing customer concerns without being defensive.
+
+Common objections include:
+- The price is too high
+- We are happy with our current vendor
+- We need more time to decide
+- This is not a priority right now
+
+Best practices:
+- Acknowledge the concern
+- Ask clarifying questions
+- Respond with value, not pressure
+- Confirm understanding before moving forward

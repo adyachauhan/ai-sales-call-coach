@@ -1,0 +1,61 @@
+{
+  "filename": "Afusic - Pal Pal with @Talwiinder  (Official Visualiser) Prod. @AliSoomroMusic (1).mp3",
+  "transcript": "Hello, thank you for taking my call. I wanted to understand your current challenges and see if our solution could help.",
+  "dashboard": {
+    "call_summary": "The sales representative initiated the call politely and attempted to understand the customer's needs through basic discovery questions.",
+    "customer_intent": "The customer appears to be exploring whether the product is relevant to their current business needs.",
+    "sentiment": "Neutral to mildly positive",
+    "rep_performance": {
+      "score": 5.3,
+      "what_went_well": [
+        "Professional and polite opening",
+        "Used discovery intent to understand needs",
+        "Maintained a friendly tone throughout the call"
+      ],
+      "what_to_improve": [
+        "Ask more open-ended discovery questions to uncover pain points and impact.",
+        "Value proposition was not clearly articulated.",
+        "Call lacked a strong closing or next-step confirmation."
+      ],
+      "signals_detected": {
+        "asked_questions_count": 0,
+        "mentioned_next_steps": false,
+        "mentioned_value_prop": false,
+        "mentioned_pricing": false,
+        "mentioned_timeline": false
+      }
+    },
+    "objection_analysis": {
+      "missed_objections": [
+        "Potential budget concerns were not proactively addressed",
+        "Implementation effort and timeline were not discussed"
+      ],
+      "buying_signals": [
+        "Customer willingly answered discovery questions",
+        "Customer did not express negative sentiment"
+      ],
+      "missed_opportunities": [
+        "Could have explored urgency or decision timeline",
+        "Could have asked about current solution pain points"
+      ]
+    },
+    "recommended_next_actions": [
+      "Prepare 5–7 discovery questions (pain, current solution, impact, timeline, stakeholders).",
+      "Prepare a 20–30 second value proposition pitch tied to the customer's pain.",
+      "End with a clear next step (book demo / schedule follow-up) and confirm time on call.",
+      "Proactively address pricing range or budget fit early if appropriate.",
+      "Ask about decision timeline and urgency to qualify the opportunity."
+    ],
+    "rag": {
+      "query": "best practices for sales discovery, value proposition, and closing",
+      "top_snippets": [
+        "Closing techniques help move a sales conversation toward a decision.\n\nExamples of closing techniques:\n- Assumptive close: Proceeding as if the customer has agreed\n- Summary close: Recapping key benefits discussed\n- Trial close: Asking how the customer feels about next steps\n- Urgency close: Highlighting limited-time benefits\n\nEffective closing should feel natural, not forced.",
+        "Discovery questions help sales representatives understand a prospect’s needs, pain points, and goals.\n\nExamples of strong discovery questions:\n- Can you walk me through your current process?\n- What challenges are you facing with your existing solution?\n- What does success look like for you in the next 6–12 months?\n- What tools or platforms are you currently using?\n- What prompted you to explore a new solution now?\n\nGood discovery focuses on listening more than speaking.",
+        "Tone and empathy are critical in sales conversations.\n\nA positive sales tone should be:\n- Calm and confident\n- Respectful and professional\n- Curious rather than aggressive\n\nEmpathy involves:\n- Actively listening\n- Validating customer feelings\n- Avoiding interruption\n- Responding thoughtfully to concerns\n\nCustomers are more likely to trust salespeople who show genuine empathy."
+      ]
+    },
+    "agent_consensus": {
+      "overall_assessment": "Agents agree the call started professionally with discovery intent, but needs clearer value articulation and a concrete next step. Objection handling and urgency/timeline discovery are key improvement areas."
+    }
+  }
+}

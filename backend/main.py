@@ -40,7 +40,7 @@ async def upload_audio(file: UploadFile = File(...)):
         "and see if our solution could help."
     )
 
-    # ✅ orchestrator output
+    # orchestrator output
     dashboard = orchestrator.invoke({"transcript": transcript})
 
     return {

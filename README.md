@@ -1,66 +1,74 @@
-# AI-Powered Sales Call Improvement Platform (AWS-Native, Local MVP)
+# AI-Powered Sales Call Improvement Platform  
+*(AWS-Native Design, Local MVP)*
 
-A web-based system that accepts a sales call audio recording, generates a transcript (mocked locally for now), and produces actionable sales improvement feedback using a **multi-agent** architecture and **RAG** (FAISS + embeddings).  
-AWS components (S3, Transcribe, Bedrock) are planned as drop-in replacements in the next phase.
+A web-based system that accepts a sales call audio recording, generates a transcript (mocked locally for now), and produces actionable sales improvement feedback using a **multi-agent architecture** and **RAG (FAISS + embeddings)**.
+
+AWS components (S3, Transcribe, Bedrock) are designed as **drop-in replacements** for the local MVP.
 
 ---
 
 ## ✅ Features (Current Local MVP)
 
-- **Upload audio** via web UI (HTML) or FastAPI Swagger UI
-- **Transcript display** (currently mocked; AWS Transcribe will replace)
-- **AI analysis dashboard JSON** suitable for a sales manager:
+- Upload audio via **Web UI (HTML)** or **FastAPI Swagger UI**
+- Transcript display *(currently mocked; AWS Transcribe will replace)*
+- AI-generated **Sales Manager Dashboard JSON**, including:
   - Call summary
   - Customer intent
   - Sentiment
-  - Rep performance (what went well / what to improve / score)
-  - Objection analysis (missed objections, buying signals, missed opportunities)
+  - Rep performance (score, strengths, improvements)
+  - Objection analysis (missed objections, buying signals)
   - Recommended next actions
-- **Multi-agent system (3 agents)**:
+- **Multi-agent system**:
   - Transcript Analyzer
-  - Sales Coach (RAG-augmented)
+  - Sales Coach *(RAG-augmented)*
   - Objection Expert
-- **RAG knowledge base** using FAISS + HuggingFace embeddings, queried during analysis
-- **LangChain orchestration** (agents executed via a LangChain runnable graph)
+- **RAG knowledge base** using FAISS + HuggingFace embeddings
+- **LangChain orchestration** using a runnable graph
 
 ---
 
 ## 🧱 Tech Stack
 
-**Backend**
+### Backend
 - Python + FastAPI
-- LangChain (`langchain-core`, `langchain-community`, `RunnableParallel`)
+- LangChain (`langchain-core`, `langchain-community`)
 - FAISS vector store
 - HuggingFace / Sentence-Transformers embeddings
 
-**Frontend**
-- Minimal HTML/JS (`frontend/index.html`)
+### Frontend
+- Minimal HTML + JavaScript (`frontend/index.html`)
 
-**AWS (Next Phase)**
-- S3 for storage
-- AWS Transcribe for speech-to-text
-- AWS Bedrock for LLM inference
+### AWS (Next Phase)
+- Amazon S3 (audio storage)
+- AWS Transcribe (speech-to-text)
+- AWS Bedrock (LLM inference)
 
 ---
 
 ## 📁 Project Structure
+
+```text
 ai-sales-call-coach/
 ├─ backend/
-│ ├─ agents/
-│ │ ├─ transcript_analyzer.py
-│ │ ├─ sales_coach.py
-│ │ ├─ objection_expert.py
-│ │ └─ final_report.py
-│ ├─ rag/
-│ │ ├─ build_index.py
-│ │ ├─ query_rag.py
-│ │ └─ faiss_index/ # index.faiss + index.pkl
-│ ├─ orchestrator.py # LangChain multi-agent orchestration
-│ └─ main.py # FastAPI app
+│  ├─ agents/
+│  │  ├─ transcript_analyzer.py
+│  │  ├─ sales_coach.py
+│  │  ├─ objection_expert.py
+│  │  └─ final_report.py
+│  ├─ rag/
+│  │  ├─ build_index.py
+│  │  ├─ query_rag.py
+│  │  └─ faiss_index/
+│  │     ├─ index.faiss
+│  │     └─ index.pkl
+│  ├─ orchestrator.py
+│  └─ main.py
 ├─ frontend/
-│ └─ index.html
-├─ sample_data/ # (add) sample audio file
-├─ sample_output/ # (add) example output JSON
+│  └─ index.html
+├─ sample_data/
+│  └─ sample_sales_call.mp3
+├─ sample_output/
+│  └─ output.json
 ├─ requirements.txt
 └─ README.md
 
@@ -68,14 +76,17 @@ ai-sales-call-coach/
 
 ## 🧠 Architecture Diagram
 
-![Architecture](docs/architecture.png)
+![Architecture Diagram](architecture.png)
+
+**Flow:**  
+Audio Upload → Transcript → RAG Retrieval → Multi-Agent Analysis → Aggregated Sales Dashboard → UI
 
 
 ## ⚙️ Setup Instructions
 
-1. Clone the repository
+### 1. Clone the repository
 ```bash
-git clone https://github.com/<your-username>/ai-sales-call-coach.git
+git clone https://github.com/adyachauhan/ai-sales-call-coach.git
 cd ai-sales-call-coach
 
 2. Create and activate virtual environment
@@ -93,8 +104,22 @@ UI: http://127.0.0.1:8000
 API docs: http://127.0.0.1:8000/docs
 
 
-### 🎧 Sample Audio
-```md
+---
+
 ## 🎧 Sample Audio
 
-A sample sales call audio file is included under:
+A sample sales call audio file is included at:
+
+sample_data/sample_sales_call.mp3
+
+This file can be uploaded directly through the web UI or Swagger UI to test the system.
+
+---
+
+## 📊 Sample Output
+
+An example AI-generated sales coaching report is available at:
+
+sample_output/output.json
+
+This demonstrates the full dashboard-style response returned by the API.

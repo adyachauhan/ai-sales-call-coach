@@ -27,6 +27,15 @@ AWS components (S3, Transcribe, Bedrock) are designed as **drop-in replacements*
 
 ---
 
+## 🌐 Live Demo
+
+Public URL (Render):  
+https://ai-sales-call-coach.onrender.com
+
+You can upload a sample sales call audio file and view the AI-generated sales analysis dashboard directly in the browser.
+
+---
+
 ## 🧱 Tech Stack
 
 ### Backend

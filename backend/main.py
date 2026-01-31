@@ -4,7 +4,15 @@ from fastapi.responses import FileResponse
 import shutil
 import os
 
+from backend.orchestrator import build_orchestrator
+
 app = FastAPI()
+
+# create orchestrator once at startup
+orchestrator = build_orchestrator()
+
+UPLOAD_DIR = "uploads"
+os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 # Paths (absolute-safe)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))          # .../backend
@@ -14,12 +22,6 @@ FRONTEND_INDEX = os.path.join(PROJECT_ROOT, "frontend", "index.html")
 UPLOAD_DIR = os.path.join(BASE_DIR, "uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-
-@app.get("/health")
-def health():
-    return {"status": "ok"}
-
-
 @app.get("/")
 def serve_ui():
     return FileResponse(FRONTEND_INDEX)
@@ -27,19 +29,18 @@ def serve_ui():
 
 @app.post("/upload-audio/")
 async def upload_audio(file: UploadFile = File(...)):
-    # 1) Save uploaded file
     file_path = os.path.join(UPLOAD_DIR, file.filename)
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    # 2) Mock transcript (AWS Transcribe later)
+    # mocked transcript for now
     transcript = (
         "Hello, thank you for taking my call. "
         "I wanted to understand your current challenges "
         "and see if our solution could help."
     )
 
-    # 3) Run LangChain multi-agent orchestration (agents + final report)
+    # ✅ orchestrator output
     dashboard = orchestrator.invoke({"transcript": transcript})
 
     return {

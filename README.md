@@ -68,28 +68,8 @@ ai-sales-call-coach/
 
 ## 🧠 Architecture Diagram
 
-```mermaid
-flowchart TD
-  U[User] --> UI[Frontend: HTML Upload Page]
-  UI -->|POST /upload-audio/| API[FastAPI Backend]
+![Architecture](docs/architecture.png)
 
-  API -->|Save file| LOCAL[(Local Storage: uploads/)]
-  API -->|Mock transcript (AWS Transcribe later)| T[Transcript Text]
-
-  API --> ORCH[LangChain Orchestrator<br/>RunnableParallel]
-
-  ORCH --> A1[Agent 1: Transcript Analyzer]
-  ORCH --> A2[Agent 2: Sales Coach]
-  ORCH --> A3[Agent 3: Objection Expert]
-
-  A2 --> RAG[RAG Retrieval]
-  RAG --> VS[(FAISS Vector Store)]
-  VS --> KB[Sales Coaching Knowledge Base<br/>(rag_data text chunks)]
-
-  ORCH --> AGG[Final Report Aggregator<br/>(final_report.py)]
-  AGG --> OUT[Dashboard JSON Response]
-
-  OUT --> UI
 
 ## ⚙️ Setup Instructions
 

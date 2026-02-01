@@ -101,7 +101,7 @@
       formData.append("file", fileInput.files[0]);
 
       btn.disabled = true;
-      status.textContent = "⏳ Uploading & analyzing...";
+      status.textContent = "Uploading & analyzing...";
 
       try {
         const response = await fetch("/upload-audio/", {

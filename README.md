@@ -33,6 +33,15 @@ You can upload a sample sales call audio file and view the AI-generated sales an
 
 ---
 
+## 🌐 Live Demo
+
+Public URL (Render):  
+https://ai-sales-call-coach.onrender.com
+
+You can upload a sample sales call audio file and view the AI-generated sales analysis dashboard directly in the browser.
+
+---
+
 ## 🧱 Tech Stack
 
 ### Backend
@@ -92,7 +101,6 @@ Audio Upload → Transcript → RAG Retrieval → Multi-Agent Analysis → Aggre
 ## ⚙️ Setup Instructions
 
 ### 1. Clone the repository
-```bash
 git clone https://github.com/adyachauhan/ai-sales-call-coach.git
 cd ai-sales-call-coach
 

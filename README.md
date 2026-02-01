@@ -6,6 +6,12 @@ A web-based system that accepts a sales call audio recording, generates a transc
 AWS components (S3, Transcribe, Bedrock) are designed as **drop-in replacements** for the local MVP.
 
 ---
+## 🌐 Live Demo
+
+Public URL (Render):  
+https://ai-sales-call-coach.onrender.com
+
+You can upload a sample sales call audio file and view the AI-generated sales analysis dashboard directly in the browser.
 
 ## ✅ Features (Current Local MVP)
 
@@ -71,10 +77,11 @@ ai-sales-call-coach/
 │  └─ output.json
 ├─ requirements.txt
 └─ README.md
+```
 
 ---
 
-## 🧠 Architecture Diagram
+### 🧠 Architecture Diagram
 
 ![Architecture Diagram](architecture.png)
 

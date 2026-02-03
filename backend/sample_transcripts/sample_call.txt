@@ -1,0 +1,14 @@
+Sales Rep: Hi, thanks for taking the call today. How are you?
+Customer: I’m good, thanks. We have about 20 minutes.
+Sales Rep: Great. Can you share how you handle sales follow-ups today?
+Customer: Mostly spreadsheets and manual reminders. It’s messy.
+Sales Rep: What’s the biggest pain point with that setup?
+Customer: We miss follow-ups and don’t have visibility into pipeline.
+Sales Rep: Understood. What would success look like for you?
+Customer: Automated follow-ups and better reporting.
+Sales Rep: Makes sense. What’s your timeline for improving this?
+Customer: Ideally this quarter, but budget is tight.
+Sales Rep: Thanks for sharing. If we can show ROI and a simple setup, would that help?
+Customer: Yes, but I’d need buy-in from my manager.
+Sales Rep: Perfect. Let’s plan a short demo and include your manager.
+Customer: Sounds good.

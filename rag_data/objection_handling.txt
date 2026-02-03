@@ -1,13 +1,51 @@
-Objection handling is the process of addressing customer concerns without being defensive.
+# Objection Handling – Sales Coaching Knowledge Base
 
-Common objections include:
-- The price is too high
-- We are happy with our current vendor
-- We need more time to decide
-- This is not a priority right now
+Purpose:
+Help sales representatives identify, acknowledge, and address customer concerns without creating pressure.
 
-Best practices:
-- Acknowledge the concern
-- Ask clarifying questions
-- Respond with value, not pressure
-- Confirm understanding before moving forward
+## Common Sales Objections
+
+1) Budget / Pricing Objection
+Occurs when the customer is unsure about cost or value.
+Examples:
+- “That seems expensive.”
+- “I’m not sure we have budget for this.”
+- “We need to think about the cost.”
+
+Best Practices:
+- Acknowledge the concern calmly.
+- Reframe cost in terms of value or ROI.
+- Ask clarifying questions about budget range.
+
+Example Responses:
+- “I understand — can you share what budget range you had in mind?”
+- “If we could show how this saves time or money long-term, would that help?”
+
+2) Timeline Objection
+Occurs when the customer delays a decision.
+Examples:
+- “We’re not ready yet.”
+- “Maybe later this year.”
+- “Now isn’t the right time.”
+
+Best Practices:
+- Ask what’s driving the timing.
+- Identify urgency or upcoming deadlines.
+- Avoid forcing a decision.
+
+Example Responses:
+- “What would need to happen before this becomes a priority?”
+- “Is there a specific timeframe you’re working toward?”
+
+3) Trust / Confidence Objection
+Occurs when the customer is unsure about credibility or fit.
+Examples:
+- “We’re happy with our current solution.”
+- “I need to think about it.”
+
+Best Practices:
+- Share proof points (customers, results).
+- Ask what they like or dislike about their current setup.
+
+Keywords:
+objection, budget, pricing, cost, timeline, delay, concern, hesitation

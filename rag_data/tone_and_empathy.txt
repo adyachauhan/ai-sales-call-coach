@@ -1,14 +1,32 @@
-Tone and empathy are critical in sales conversations.
+# Tone and Empathy – Sales Coaching Knowledge Base
 
-A positive sales tone should be:
+Purpose:
+Help sales representatives build trust and rapport through respectful, empathetic communication.
+
+## Effective Sales Tone
+
+Characteristics:
 - Calm and confident
-- Respectful and professional
+- Professional and respectful
 - Curious rather than aggressive
 
-Empathy involves:
-- Actively listening
-- Validating customer feelings
-- Avoiding interruption
-- Responding thoughtfully to concerns
+Empathy Best Practices:
+- Actively listen without interrupting.
+- Acknowledge customer concerns.
+- Validate emotions and perspectives.
 
-Customers are more likely to trust salespeople who show genuine empathy.
+Example Phrases:
+- “That makes sense.”
+- “I understand where you’re coming from.”
+- “Thanks for sharing that — it’s helpful.”
+
+What to Avoid:
+- Talking over the customer.
+- Sounding scripted or rushed.
+- Dismissing concerns.
+
+Impact:
+Customers are more likely to engage and trust sales reps who demonstrate empathy.
+
+Keywords:
+tone, empathy, listening, trust, rapport, communication

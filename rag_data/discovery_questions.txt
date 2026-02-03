@@ -1,10 +1,44 @@
-Discovery questions help sales representatives understand a prospect’s needs, pain points, and goals.
+# Discovery Questions – Sales Coaching Knowledge Base
 
-Examples of strong discovery questions:
-- Can you walk me through your current process?
-- What challenges are you facing with your existing solution?
-- What does success look like for you in the next 6–12 months?
-- What tools or platforms are you currently using?
-- What prompted you to explore a new solution now?
+Purpose:
+Enable sales representatives to understand customer needs, pain points, and goals before pitching a solution.
 
-Good discovery focuses on listening more than speaking.
+## Core Discovery Areas
+
+1) Current State
+Understand how the customer operates today.
+Example Questions:
+- “Can you walk me through your current process?”
+- “What tools or solutions are you using today?”
+
+2) Pain Points
+Identify problems or inefficiencies.
+Example Questions:
+- “What challenges are you facing with your current setup?”
+- “What’s the most frustrating part of this process?”
+
+3) Impact
+Understand why the problem matters.
+Example Questions:
+- “How does this impact your team or customers?”
+- “What happens if this issue isn’t resolved?”
+
+4) Success Criteria
+Define what a good outcome looks like.
+Example Questions:
+- “What would success look like for you?”
+- “How would you measure improvement?”
+
+5) Decision Process
+Understand how decisions are made.
+Example Questions:
+- “Who else is involved in the decision?”
+- “What’s the typical timeline for moving forward?”
+
+Best Practices:
+- Ask open-ended questions.
+- Listen more than you speak.
+- Avoid pitching before understanding the problem.
+
+Keywords:
+discovery, pain points, goals, needs, current process, decision process

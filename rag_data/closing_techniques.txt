@@ -1,9 +1,38 @@
-Closing techniques help move a sales conversation toward a decision.
+# Closing Techniques – Sales Coaching Knowledge Base
 
-Examples of closing techniques:
-- Assumptive close: Proceeding as if the customer has agreed
-- Summary close: Recapping key benefits discussed
-- Trial close: Asking how the customer feels about next steps
-- Urgency close: Highlighting limited-time benefits
+Purpose:
+Guide sales representatives in confidently moving a conversation toward a clear next step or decision.
 
-Effective closing should feel natural, not forced.
+## Closing Techniques
+
+1) Trial Close
+Used to gauge readiness.
+Example Lines:
+- “How does this sound so far?”
+- “Does this align with what you’re looking for?”
+
+2) Summary Close
+Used to confirm understanding and value.
+Example Lines:
+- “To recap, you’re looking for A, B, and C — is that correct?”
+- “Based on what we discussed, does this feel like a good fit?”
+
+3) Next-Step Close
+Used when the goal is progression, not purchase.
+Example Lines:
+- “Would it make sense to schedule a demo?”
+- “Can we set up a follow-up call next week?”
+
+4) Assumptive Close
+Used when the customer has shown clear agreement.
+Example Lines:
+- “Let’s get the next step scheduled.”
+- “I’ll send the calendar invite now.”
+
+Best Practices:
+- Always confirm the next step.
+- Avoid vague endings like “we’ll follow up.”
+- Closing should feel helpful, not pushy.
+
+Keywords:
+closing, next steps, follow-up, trial close, summary close, decision

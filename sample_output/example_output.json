@@ -1,61 +1,65 @@
 {
-  "filename": "Afusic - Pal Pal with @Talwiinder  (Official Visualiser) Prod. @AliSoomroMusic (1).mp3",
-  "transcript": "Hello, thank you for taking my call. I wanted to understand your current challenges and see if our solution could help.",
+  "filename": "sample_mad.mp3",
+  "transcript": "Sales rep Brad, yeah, hi, is this Michael? Customer Michael, uh yes, who's calling? Brad, Brad from Tech Force Systems. Look, I'll cut to the chase. You're leaving money on the table every single day you're not using our platform. Michael, I'm sorry, what platform? I don't think I. Brad, doesn't matter. What matters is that your competitors are already using us and they're crushing it. I'm looking at your website right now, and honestly, your current setup is probably costing you thousands in lost productivity. When can we get this implemented? Michael, hold on, I don't even know what you're selling, and I'm actually in the middle of. Brad, Michael, Michael, I get it. You're busy. Everyone's busy. That's exactly why you need this. Listen, I've got a special promotion that expires literally today. If you sign up in the next hour, I can get you 30% off, but I need a decision now because after today, my manager's pulling the offer. Michael, I don't make purchasing decisions in an hour. I'd need to see a proposal, talk to my team. Brad, your team, come on, you're the decision maker, right? Look, I've been doing this for 12 years. Trust me on this. Every client who waits ends up regretting it. Just give me your email and I'll send over the contract. We can have you up and running by tomorrow. Michael, I really don't think this is the right time. Brad, that's what everyone says. And then 6 months later they call me back saying, Brad, you were right, we should have done this sooner. Don't be that guy. What's your credit card company, Visa or Mastercard? Michael, I'm going to have to go. Please don't call this number again. Brad, fine, but when your competition leaves you in the dust, don't say I didn't warn you. I'll call back next week when you've had time to think about it.",
   "dashboard": {
-    "call_summary": "The sales representative initiated the call politely and attempted to understand the customer's needs through basic discovery questions.",
-    "customer_intent": "The customer appears to be exploring whether the product is relevant to their current business needs.",
-    "sentiment": "Neutral to mildly positive",
+    "report_version": "v1",
+    "call_summary": "The conversation showed customer resistance and did not progress toward a constructive next step.",
+    "customer_intent": "The customer appears uninterested or dissatisfied and is not currently open to the offer.",
+    "sentiment": "Negative",
     "rep_performance": {
-      "score": 5.3,
+      "score": 5.5,
       "what_went_well": [
-        "Professional and polite opening",
-        "Used discovery intent to understand needs",
-        "Maintained a friendly tone throughout the call"
+        "Asked multiple questions to understand the customer context (discovery).",
+        "Mentioned customer value/benefits (value proposition).",
+        "Discussed a next step, which helps move the deal forward."
       ],
       "what_to_improve": [
-        "Ask more open-ended discovery questions to uncover pain points and impact.",
-        "Value proposition was not clearly articulated.",
-        "Call lacked a strong closing or next-step confirmation."
+        "De-escalation opportunity: acknowledge frustration before continuing the pitch.",
+        "Use more empathy/acknowledgement phrases to build trust (e.g., 'That makes sense').",
+        "Avoid pushing next steps when the customer is disengaged; focus on preserving trust."
       ],
       "signals_detected": {
-        "asked_questions_count": 0,
-        "mentioned_next_steps": false,
-        "mentioned_value_prop": false,
-        "mentioned_pricing": false,
-        "mentioned_timeline": false
+        "asked_questions_count": 6,
+        "mentioned_next_steps": true,
+        "mentioned_value_prop": true,
+        "mentioned_pricing": true,
+        "mentioned_timeline": true,
+        "showed_empathy": false
       }
     },
     "objection_analysis": {
       "missed_objections": [
-        "Potential budget concerns were not proactively addressed",
-        "Implementation effort and timeline were not discussed"
+        "Customer expressed a clear rejection; the underlying reason was not explored."
       ],
       "buying_signals": [
-        "Customer willingly answered discovery questions",
-        "Customer did not express negative sentiment"
+        "No buying signals detected due to customer resistance / disengagement."
       ],
       "missed_opportunities": [
-        "Could have explored urgency or decision timeline",
-        "Could have asked about current solution pain points"
+        "Acknowledge the customer's frustration to de-escalate the conversation.",
+        "Ask one short, low-effort clarifying question to uncover the root issue (if the customer is willing).",
+        "Gracefully end the call if resistance continues, to protect trust and brand perception."
+      ],
+      "rag_context_used": [
+        "Tone and empathy are critical in sales conversations.\n\nA positive sales tone should be:\n- Calm and confident\n- Respectful and professional\n- Curious rather than aggressive\n\nEmpathy involves:\n- Actively listening\n- Validating customer feelings\n- Avoiding interruption\n- Responding thoughtfully to concerns\n\nCustomers are more likely to trust salespeople who show genuine empathy.",
+        "Follow-up strategies help maintain momentum after a sales call.\n\nEffective follow-up includes:\n- Sending a summary of the discussion\n- Highlighting agreed next steps\n- Sharing relevant resources\n- Keeping communication concise\n\nConsistent follow-up demonstrates professionalism and reliability.",
+        "Closing techniques help move a sales conversation toward a decision.\n\nExamples of closing techniques:\n- Assumptive close: Proceeding as if the customer has agreed\n- Summary close: Recapping key benefits discussed\n- Trial close: Asking how the customer feels about next steps\n- Urgency close: Highlighting limited-time benefits\n\nEffective closing should feel natural, not forced."
       ]
     },
     "recommended_next_actions": [
-      "Prepare 5–7 discovery questions (pain, current solution, impact, timeline, stakeholders).",
-      "Prepare a 20–30 second value proposition pitch tied to the customer's pain.",
-      "End with a clear next step (book demo / schedule follow-up) and confirm time on call.",
-      "Proactively address pricing range or budget fit early if appropriate.",
-      "Ask about decision timeline and urgency to qualify the opportunity."
+      "Acknowledge the customer's frustration and ask one clarifying question to understand the root cause.",
+      "If resistance continues, gracefully exit: ask permission to follow up later rather than pushing a demo.",
+      "Log the reason for rejection (price, timing, relevance, previous experience) and tailor future outreach."
     ],
     "rag": {
-      "query": "best practices for sales discovery, value proposition, and closing",
+      "query": "sales discovery questions, closing techniques, tone and empathy, and follow-up strategies",
       "top_snippets": [
-        "Closing techniques help move a sales conversation toward a decision.\n\nExamples of closing techniques:\n- Assumptive close: Proceeding as if the customer has agreed\n- Summary close: Recapping key benefits discussed\n- Trial close: Asking how the customer feels about next steps\n- Urgency close: Highlighting limited-time benefits\n\nEffective closing should feel natural, not forced.",
+        "Tone and empathy are critical in sales conversations.\n\nA positive sales tone should be:\n- Calm and confident\n- Respectful and professional\n- Curious rather than aggressive\n\nEmpathy involves:\n- Actively listening\n- Validating customer feelings\n- Avoiding interruption\n- Responding thoughtfully to concerns\n\nCustomers are more likely to trust salespeople who show genuine empathy.",
         "Discovery questions help sales representatives understand a prospect’s needs, pain points, and goals.\n\nExamples of strong discovery questions:\n- Can you walk me through your current process?\n- What challenges are you facing with your existing solution?\n- What does success look like for you in the next 6–12 months?\n- What tools or platforms are you currently using?\n- What prompted you to explore a new solution now?\n\nGood discovery focuses on listening more than speaking.",
-        "Tone and empathy are critical in sales conversations.\n\nA positive sales tone should be:\n- Calm and confident\n- Respectful and professional\n- Curious rather than aggressive\n\nEmpathy involves:\n- Actively listening\n- Validating customer feelings\n- Avoiding interruption\n- Responding thoughtfully to concerns\n\nCustomers are more likely to trust salespeople who show genuine empathy."
+        "Follow-up strategies help maintain momentum after a sales call.\n\nEffective follow-up includes:\n- Sending a summary of the discussion\n- Highlighting agreed next steps\n- Sharing relevant resources\n- Keeping communication concise\n\nConsistent follow-up demonstrates professionalism and reliability."
       ]
     },
     "agent_consensus": {
-      "overall_assessment": "Agents agree the call started professionally with discovery intent, but needs clearer value articulation and a concrete next step. Objection handling and urgency/timeline discovery are key improvement areas."
+      "overall_assessment": "Agents agree the call showed strengths in clear value articulation, clear next-step confirmation, positive customer engagement, but improvements are needed in selling technique consistency, proactive objection handling, deeper discovery and qualification."
     }
   }
 }

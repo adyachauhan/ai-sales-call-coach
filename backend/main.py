@@ -5,6 +5,11 @@ import shutil, os, uuid, traceback
 
 from dotenv import load_dotenv
 load_dotenv()
+REQUIRED_ENV = ["AWS_REGION", "S3_BUCKET", "BEDROCK_MODEL_ID"]
+missing = [k for k in REQUIRED_ENV if not os.getenv(k)]
+if missing:
+    raise RuntimeError(f"Missing required environment variables: {', '.join(missing)}")
+
 
 from botocore.exceptions import ClientError
 
@@ -29,6 +34,10 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 def serve_ui():
     return FileResponse("frontend/index.html")
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 @app.post("/upload-audio/")
 async def upload_audio(file: UploadFile = File(...)):
     try:
@@ -37,7 +46,27 @@ async def upload_audio(file: UploadFile = File(...)):
         with open(file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
 
-        # 2) Upload to S3
+        # 2) Validate file extension
+        ext = (file.filename.split(".")[-1] or "").lower()
+        allowed_exts = ("mp3", "wav", "m4a", "mp4")
+        if ext not in allowed_exts:
+            os.remove(file_path)
+            return JSONResponse(
+                status_code=400,
+                content={"error": f"Invalid file type. Allowed: {', '.join(allowed_exts)}"}
+            )
+        
+        # 3) Validate file size
+        max_mb = 25
+        size_mb = os.path.getsize(file_path) / (1024 * 1024)
+        if size_mb > max_mb:
+            os.remove(file_path)
+            return JSONResponse(
+                status_code=400,
+                content={"error": f"File too large. Max {max_mb}MB"}
+            )
+
+        # 4) Upload to S3
         ext = (file.filename.split(".")[-1] or "").lower()
         if ext not in ("mp3", "wav", "m4a", "mp4"):
             ext = "mp3"
@@ -46,7 +75,13 @@ async def upload_audio(file: UploadFile = File(...)):
         media_s3_uri = upload_file_to_s3(file_path, s3_key)
         print("✅ Uploaded to S3:", media_s3_uri)
 
-        # 3) Transcribe (or fallback)
+        max_mb = 25
+        size_mb = os.path.getsize(file_path) / (1024 * 1024)
+        if size_mb > max_mb:
+            return JSONResponse(status_code=400, content={"error": f"File too large. Max {max_mb}MB"})
+
+
+        # 5) Transcribe (or fallback)
         transcript = None
 
         if USE_MOCK_TRANSCRIPT:

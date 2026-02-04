@@ -6,6 +6,7 @@ A web-based system that accepts a sales call audio recording, generates a transc
 AWS components (S3, Transcribe, Bedrock) are designed as **drop-in replacements** for the local MVP.
 
 ---
+
 ## 🌐 Live Demo
 
 Public URL (Render):  
@@ -13,10 +14,12 @@ https://ai-sales-call-coach.onrender.com
 
 You can upload a sample sales call audio file and view the AI-generated sales analysis dashboard directly in the browser.
 
+---
+
 ## ✅ Features (Current Local MVP)
 
 - Upload audio via **Web UI (HTML)** or **FastAPI Swagger UI**
-- Transcript display *(currently mocked; AWS Transcribe will replace)*
+- Transcript display powered by AWS Transcribe (with local fallback for development)
 - AI-generated **Sales Manager Dashboard JSON**, including:
   - Call summary
   - Customer intent
@@ -33,12 +36,14 @@ You can upload a sample sales call audio file and view the AI-generated sales an
 
 ---
 
-## 🌐 Live Demo
+### 🤖 Multi-Agent Collaboration
 
-Public URL (Render):  
-https://ai-sales-call-coach.onrender.com
+Each sales call is analysed by multiple specialized agents:
+- **Transcript Analyzer** extracts sentiment, intent, and key moments
+- **Sales Coach** evaluates discovery, value articulation, closing, and empathy (RAG-backed)
+- **Objection Expert** identifies missed objections, buying signals, and recovery opportunities
 
-You can upload a sample sales call audio file and view the AI-generated sales analysis dashboard directly in the browser.
+Their outputs are aggregated into a single structured sales improvement report.
 
 ---
 
@@ -53,10 +58,12 @@ You can upload a sample sales call audio file and view the AI-generated sales an
 ### Frontend
 - Minimal HTML + JavaScript (`frontend/index.html`)
 
-### AWS (Next Phase)
+### AWS (Production Path)
 - Amazon S3 (audio storage)
 - AWS Transcribe (speech-to-text)
 - AWS Bedrock (LLM inference)
+
+These services are fully integrated and can be toggled between local and AWS-backed execution for development and cost control.
 
 ---
 
@@ -73,13 +80,22 @@ ai-sales-call-coach/
 │  ├─ rag/
 │  │  ├─ build_index.py
 │  │  ├─ query_rag.py
+│  │  ├─ rag_chain.py
+│  │  ├─ test_rag.py
 │  │  └─ faiss_index/
 │  │     ├─ index.faiss
 │  │     └─ index.pkl
 │  ├─ orchestrator.py
+│  ├─ bedrock_llm.py
 │  └─ main.py
 ├─ frontend/
 │  └─ index.html
+├─ rag_data/
+│  ├─ closing_techniques.txt
+│  ├─ discovery_questions.txt
+│  ├─ follow_up_strategies.txt
+│  ├─ objection_handling.txt
+│  └─ tone_and_empathy.txt
 ├─ sample_data/
 │  └─ sample_sales_call.mp3
 ├─ sample_output/
@@ -92,7 +108,7 @@ ai-sales-call-coach/
 
 ### 🧠 Architecture Diagram
 
-![Architecture Diagram](architecture.png)
+![Architecture Diagram](./docs/architecture.png)
 
 **Flow:**  
 Audio Upload → Transcript → RAG Retrieval → Multi-Agent Analysis → Aggregated Sales Dashboard → UI
@@ -104,20 +120,36 @@ Audio Upload → Transcript → RAG Retrieval → Multi-Agent Analysis → Aggre
 git clone https://github.com/adyachauhan/ai-sales-call-coach.git
 cd ai-sales-call-coach
 
-2. Create and activate virtual environment
+### 2. Create and activate virtual environment
 python -m venv .venv
 source .venv/bin/activate
 
-3. Install dependencies
+### 3. Install dependencies
 pip install -r requirements.txt
 
-4. Run the backend
+### 4. Run the backend
 python -m uvicorn backend.main:app --reload
 
-5. Open the app
+### 5. Open the app
 UI: http://127.0.0.1:8000
 API docs: http://127.0.0.1:8000/docs
 
+---
+
+## 🔐 AWS Configuration
+
+This project uses AWS services via the AWS SDK.
+
+Required environment variables:
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- AWS_DEFAULT_REGION
+- S3_BUCKET_NAME
+- BEDROCK_MODEL_ID
+
+You can configure credentials using:
+```bash
+aws configure
 
 ---
 
@@ -135,6 +167,6 @@ This file can be uploaded directly through the web UI or Swagger UI to test the 
 
 An example AI-generated sales coaching report is available at:
 
-sample_output/output.json
+sample_output/example_output.json
 
 This demonstrates the full dashboard-style response returned by the API.

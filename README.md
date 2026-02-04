@@ -150,7 +150,7 @@ Required environment variables:
 You can configure credentials using:
 ```bash
 aws configure
-
+```
 ---
 
 ## 🎧 Sample Audio

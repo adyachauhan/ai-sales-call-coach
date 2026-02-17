@@ -2,10 +2,21 @@ import os
 
 USE_FAKE_RAG = os.getenv("USE_FAKE_RAG", "false").lower() == "true"
 
-def query_knowledge_base(query: str):
+FAISS_PATH = "backend/rag/faiss_index"
+
+
+def query_knowledge_base(query: str, company: str = None):
     """
     Returns relevant sales coaching context.
-    Uses fake lightweight RAG in deployment environments.
+
+    Args:
+        query (str): user query
+        company (str | None): optional company filter (e.g. "signiance")
+
+    Behavior:
+    - fake lightweight RAG in deployment environments
+    - real FAISS retrieval locally
+    - prioritizes company-specific KB if company is provided
     """
 
     # SAFE MODE (Render / low-memory)
@@ -17,7 +28,7 @@ def query_knowledge_base(query: str):
             "Clarify decision timelines and buying authority."
         ]
 
-    # FULL RAG (LOCAL ONLY)
+    # FULL RAG (LOCAL)
     from langchain_huggingface import HuggingFaceEmbeddings
     from langchain_community.vectorstores import FAISS
 
@@ -26,10 +37,41 @@ def query_knowledge_base(query: str):
     )
 
     db = FAISS.load_local(
-        "backend/rag/faiss_index",
+        FAISS_PATH,
         embeddings,
         allow_dangerous_deserialization=True
     )
 
-    docs = db.similarity_search(query, k=3)
-    return [doc.page_content for doc in docs]
+    results = []
+
+    # 1Try company-specific retrieval first
+    if company:
+        company_docs = db.similarity_search(
+            query,
+            k=5,
+            filter={"company": company}
+        )
+        results.extend(company_docs)
+
+    # 2Fallback / supplement with generic knowledge
+    generic_docs = db.similarity_search(
+        query,
+        k=5,
+        filter={"kb_type": "generic"}
+    )
+
+    results.extend(generic_docs)
+
+    # 3Deduplicate + keep top context
+    seen = set()
+    final_docs = []
+
+    for doc in results:
+        if doc.page_content not in seen:
+            seen.add(doc.page_content)
+            final_docs.append(doc)
+
+        if len(final_docs) >= 5:
+            break
+
+    return [doc.page_content for doc in final_docs]

@@ -13,6 +13,8 @@ if missing:
 
 from botocore.exceptions import ClientError
 
+from backend.agents.sentiment_agent import sentiment_agent
+
 from backend.agents.transcript_analyzer import transcript_analyzer_agent
 from backend.agents.sales_coach import sales_coach_agent
 from backend.agents.objection_expert import objection_expert_agent

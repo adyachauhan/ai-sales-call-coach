@@ -1,5 +1,8 @@
 # backend/agentcore_app/orchestrator.py
-from __future__ import annotations
+from backend.agents.transcript_analyzer import transcript_analyzer_agent
+from backend.agents.sales_coach import sales_coach_agent
+from backend.agents.objection_expert import objection_expert_agent
+from backend.agents.final_report import generate_final_report
 
 from typing import Any, Dict
 import concurrent.futures as cf
